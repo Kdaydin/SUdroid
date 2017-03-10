@@ -63,6 +63,7 @@ public class D_Prog_Activity extends AppCompatActivity implements AdapterView.On
         Snackbar.make(view,sharedPreferences.getString(TERM,""),Snackbar.LENGTH_LONG)
                 .setAction("Action",null)
                 .show();
+        Log.d("SELECTEDTERM",sharedPreferences.getString(TERM,""));
         new CourseAccess().execute();
     }
 
