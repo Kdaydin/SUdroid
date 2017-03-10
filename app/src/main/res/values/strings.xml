@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">SUdroid</string>
+    <string name="remove_credentials">Remove Login Info</string>
+    <string name="toolbar_subtitle">Choose your action: </string>
+    <string name="login">LOGIN</string>
+    <string name="request_ID">Please Enter SU Username: </string>
+    <string name="request_term">Please Select Term: </string>
+    <string name="courses">Courses for Selected Term: </string>
+    <string name="request_Pass">Please Enter Your Password: </string>
+    <string name="username_filler">Username&#8230;</string>
+    <string name="password_filler">Password&#8230;</string>
+    <string name="ders_prog">DERS PROGRAMI</string>
+    <string name="ders_katalog">DERS KATALOGU</string>
+    <string name="final_prog">FINAL PROGRAMI</string>
+    <string name="yurt">YURT BASVURU SONUCLARI</string>
+    <string name="title_activity_login_info">Login Info</string>
+    <string name="title_activity_banner_login">BannerWeb Login</string>
+    <!-- <string name="banner_ad_unit_id">ca-app-pub-4911657548295434/</string> -->
+    <string name="banner_ad_unit_id">ca-app-pub-4911657548295434/6640388102</string>
+    <string name="title_activity_d__prog_">Ders Programı</string>
+
+</resources>

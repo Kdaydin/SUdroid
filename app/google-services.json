@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "202952319028",
+    "firebase_url": "https://sudroid-868a1.firebaseio.com",
+    "project_id": "sudroid-868a1",
+    "storage_bucket": "sudroid-868a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202952319028:android:5c8fb6d6283afbdb",
+        "android_client_info": {
+          "package_name": "com.khome.kdaydin.sudroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "202952319028-e9tppqrv34ctgk6rdt06l1c8pmdreu2i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.khome.kdaydin.sudroid",
+            "certificate_hash": "C2E4DA092EB7663D08F43CBDAD1621903447529D"
+          }
+        },
+        {
+          "client_id": "202952319028-074ked3dcs2eipndluulthgc0mvv2g1m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfEDhFF6OwnN53NFT6-NAywAi69-S1LdQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "202952319028-074ked3dcs2eipndluulthgc0mvv2g1m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
