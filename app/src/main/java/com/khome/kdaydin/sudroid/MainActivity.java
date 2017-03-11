@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         mAdView.loadAd(adRequest);
         sharedPreferences = getSharedPreferences(USRCRE,Context.MODE_PRIVATE);
 
-        /********** Floating Action Button Code  **********************************************
+        /* ******** Floating Action Button Code  **********************************************
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        ***************************************************************************************/
+        ************************************************************************************* */
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(i);
                 }
                 else if (sharedPreferences.getInt("HAS_ID_PASS",0)==1){
-                    //Toast.makeText(MainActivity.this, "Already Have Login Info!", Toast.LENGTH_SHORT).show();
                     //Attempt Login Directly
                     Intent i = new Intent(getApplicationContext(),BannerLogin.class);
                     Bundle bundle = new Bundle();
@@ -95,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
         mD_Prog.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                //Toast.makeText(MainActivity.this, "Will Be Added Soon!", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getApplicationContext(),D_Prog_Activity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString(FirebaseAnalytics.Param.ITEM_ID,"Ders Programı");

@@ -48,7 +48,9 @@ public class LoginInfo extends AppCompatActivity {
 
             }
         });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     boolean inputCheck(EditText mEditText){

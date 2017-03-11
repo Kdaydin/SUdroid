@@ -13,7 +13,7 @@ import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toast;
+
 
 import static com.khome.kdaydin.sudroid.MainActivity.USRCRE;
 
@@ -50,7 +50,6 @@ public class BannerLogin extends AppCompatActivity {
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 if(mWebView.getUrl().matches("http://suis.sabanciuniv.edu/prod/twbkwbis.P_SabanciLogin")){
-                    Toast.makeText(BannerLogin.this, "(Y)",Toast.LENGTH_SHORT).show();
                     progress.dismiss();
 
                     String username = getSharedPreferences(USRCRE, Context.MODE_PRIVATE).getString("USERNAME","");
@@ -70,12 +69,14 @@ public class BannerLogin extends AppCompatActivity {
                 }
                 else if (mWebView.getUrl().matches("http://suis.sabanciuniv.edu/index.html")){
                     mWebView.loadUrl("http://suis.sabanciuniv.edu/prod/twbkwbis.P_SabanciLogin");
-                    Toast.makeText(BannerLogin.this,"(N)",Toast.LENGTH_SHORT);
+
                 }
             }
 
         });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
     }
 
 }

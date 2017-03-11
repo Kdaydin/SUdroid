@@ -42,12 +42,13 @@ public class D_Prog_Activity extends AppCompatActivity implements AdapterView.On
         mSpinner = (Spinner) findViewById(R.id.d_prog_term_spinner);
         mListView = (ListView) findViewById(R.id.d_prog_courselist);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         new TermAccess().execute(); //Getting Terms
         mSpinner.setOnItemSelectedListener(this);
 
-        //TODO: After getting item POST the url with params. Scrape courses.
 
 
     }
@@ -63,8 +64,14 @@ public class D_Prog_Activity extends AppCompatActivity implements AdapterView.On
         Snackbar.make(view,sharedPreferences.getString(TERM,""),Snackbar.LENGTH_LONG)
                 .setAction("Action",null)
                 .show();
-        Log.d("SELECTEDTERM",sharedPreferences.getString(TERM,""));
-        new CourseAccess().execute();
+        if(sharedPreferences.getString(TERM,"").equalsIgnoreCase("")){
+            mListView.setVisibility(View.GONE);
+        }
+        else{
+            mListView.setVisibility(View.VISIBLE);
+            new CourseAccess().execute();
+        }
+
     }
 
     @Override
@@ -90,9 +97,9 @@ public class D_Prog_Activity extends AppCompatActivity implements AdapterView.On
             try {
                 Document document = Jsoup.connect("http://suis.sabanciuniv.edu/prod/bwckschd.p_disp_dyn_sched").get();
                 Element element =  document.getElementById("term_input_id");
-                Elements terms = element.getElementsByTag("option");
+                Elements terms = element.getElementsByTag("OPTION");
                 for (Element term : terms) {
-                    termarray.put(term.text(),term.attr("value"));
+                    termarray.put(term.text(),term.attr("VALUE"));
                 }
 
 
@@ -147,7 +154,6 @@ public class D_Prog_Activity extends AppCompatActivity implements AdapterView.On
                     coursearray.put(term.text(),term.attr("VALUE"));
                 }
 
-                //Log.d("TERMRESPONSE", "TermResponse : "+termresponse.parse().toString());
             } catch (IOException e) {
                 e.printStackTrace();
             }
