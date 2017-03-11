@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">SUdroid</string>
     <string name="remove_credentials">Remove Login Info</string>
-    <string name="toolbar_subtitle">Choose your action: </string>
+    <string name="toolbar_subtitle">Choose your action : </string>
     <string name="login">LOGIN</string>
-    <string name="request_ID">Please Enter SU Username: </string>
-    <string name="request_term">Please Select Term: </string>
-    <string name="courses">Courses for Selected Term: </string>
+    <string name="request_ID">Please Enter SU Username : </string>
+    <string name="request_term">Please Select Term : </string>
+    <string name="courses">Courses for Selected Term : </string>
+    <string name="courseno">Course Number : </string>
     <string name="request_Pass">Please Enter Your Password: </string>
     <string name="username_filler">Username&#8230;</string>
     <string name="password_filler">Password&#8230;</string>
@@ -18,5 +19,6 @@
     <!-- <string name="banner_ad_unit_id">ca-app-pub-4911657548295434/</string> -->
     <string name="banner_ad_unit_id">ca-app-pub-4911657548295434/6640388102</string>
     <string name="title_activity_d__prog_">Ders Programı</string>
+    <string name="optional">Optional</string>
 
 </resources>

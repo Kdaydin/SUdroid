@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -24,6 +25,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 public class D_Prog_Activity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -31,6 +33,7 @@ public class D_Prog_Activity extends AppCompatActivity implements AdapterView.On
     ListView mListView;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+    FloatingActionButton d_prog_fab;
     public static final String TERM = "TERM";
 
     @Override
@@ -41,6 +44,9 @@ public class D_Prog_Activity extends AppCompatActivity implements AdapterView.On
         setSupportActionBar(toolbar);
         mSpinner = (Spinner) findViewById(R.id.d_prog_term_spinner);
         mListView = (ListView) findViewById(R.id.d_prog_courselist);
+        mListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        mListView.setItemsCanFocus(false);
+        d_prog_fab = (FloatingActionButton) findViewById(R.id.d_prog_fab);
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -49,6 +55,25 @@ public class D_Prog_Activity extends AppCompatActivity implements AdapterView.On
         new TermAccess().execute(); //Getting Terms
         mSpinner.setOnItemSelectedListener(this);
 
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            ArrayList<String> selectedCourses = new ArrayList<>();
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (selectedCourses.contains(parent.getItemAtPosition(position).toString())){
+                    selectedCourses.remove(parent.getItemAtPosition(position).toString());
+                }
+                else {
+                    selectedCourses.add(parent.getItemAtPosition(position).toString());
+                }
+            }
+        });
+
+        d_prog_fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(D_Prog_Activity.this, "Will be added soon!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
     }
@@ -61,9 +86,9 @@ public class D_Prog_Activity extends AppCompatActivity implements AdapterView.On
         editor.clear();
         editor.putString(TERM,parent.getItemAtPosition(position).toString());
         editor.apply();
-        //Snackbar.make(view,sharedPreferences.getString(TERM,""),Snackbar.LENGTH_LONG)
-        //        .setAction("Action",null)
-        //        .show();
+        Snackbar.make(view,sharedPreferences.getString(TERM,""),Snackbar.LENGTH_LONG)
+                .setAction("Action",null)
+                .show();
         if(sharedPreferences.getString(TERM,"").equalsIgnoreCase("")){
             mListView.setVisibility(View.GONE);
         }
@@ -163,14 +188,15 @@ public class D_Prog_Activity extends AppCompatActivity implements AdapterView.On
         @Override
         protected void onPostExecute(Void result) {
             // Set title into TextView
-            final HashMapAdapter hashMapAdapter = new HashMapAdapter(coursearray);
+            final HashMapMultipleChoiceAdapter hashMapmultipleAdapter = new HashMapMultipleChoiceAdapter(coursearray);
 
             Runnable runnable = new Runnable() {
                 public void run() {
-                    mListView.setAdapter(hashMapAdapter);
+                    mListView.setAdapter(hashMapmultipleAdapter);
                 }
             };
             runOnUiThread(runnable);
+
             mProgressDialog.dismiss();
         }
     }
