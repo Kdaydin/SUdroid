@@ -61,9 +61,9 @@ public class D_Prog_Activity extends AppCompatActivity implements AdapterView.On
         editor.clear();
         editor.putString(TERM,parent.getItemAtPosition(position).toString());
         editor.apply();
-        Snackbar.make(view,sharedPreferences.getString(TERM,""),Snackbar.LENGTH_LONG)
-                .setAction("Action",null)
-                .show();
+        //Snackbar.make(view,sharedPreferences.getString(TERM,""),Snackbar.LENGTH_LONG)
+        //        .setAction("Action",null)
+        //        .show();
         if(sharedPreferences.getString(TERM,"").equalsIgnoreCase("")){
             mListView.setVisibility(View.GONE);
         }
