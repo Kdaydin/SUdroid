@@ -44,6 +44,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true"
             android:id="@+id/d_prog_course_no_wrapper">
             <TextView
                 android:layout_width="wrap_content"
@@ -57,7 +59,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/d_prog_course_no"
                 android:hint="@string/optional"
-                android:textColorHint="@color/darkTextTransparent"/>
+                android:textColorHint="@color/darkTextTransparent"
+                android:inputType="number"/>
 
         </LinearLayout>
     </LinearLayout>
