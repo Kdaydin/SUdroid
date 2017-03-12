@@ -50,7 +50,6 @@ public class D_Prog_Activity extends AppCompatActivity implements AdapterView.On
         mListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         mListView.setItemsCanFocus(false);
         mEditText = (EditText) findViewById(R.id.d_prog_course_no);
-        mEditText.setShowSoftInputOnFocus(true);
         d_prog_fab = (FloatingActionButton) findViewById(R.id.d_prog_fab);
 
         if (getSupportActionBar() != null) {
@@ -125,7 +124,9 @@ public class D_Prog_Activity extends AppCompatActivity implements AdapterView.On
         @Override
         protected Void doInBackground(Void... params) {
             try {
-                Document document = Jsoup.connect("http://suis.sabanciuniv.edu/prod/bwckschd.p_disp_dyn_sched").get();
+                Document document = Jsoup.connect("http://suis.sabanciuniv.edu/prod/bwckschd.p_disp_dyn_sched")
+                        .userAgent("Mozilla/5.0 (Windows NT 6.3; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0")
+                        .get();
                 Element element =  document.getElementById("term_input_id");
                 Elements terms = element.getElementsByTag("OPTION");
                 for (Element term : terms) {
